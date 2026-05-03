@@ -1865,7 +1865,7 @@ Library.Window = function(self, Data)
         SubTitle = Data.SubTitle or Data.subtitle or "for PUBG",
         ExpiresIn = Data.ExpiresIn or Data.expiresin or "23d",
         Logo = Data.Logo or Data.logo or nil,
-        Size = Data.Size or Data.size or UDim2.fromOffset(568, 350),
+        Size = Data.Size or Data.size or UDim2.fromOffset(480, 300),
         
         Pages = { },
         Items = { },
@@ -1899,7 +1899,7 @@ Library.Window = function(self, Data)
             Name = "\0",
             BackgroundTransparency = 1,
             BorderColor3 = FromRGB(0, 0, 0),
-            Size = UDim2New(0, 215, 1, 0),
+            Size = UDim2New(0, 175, 1, 0),
             BorderSizePixel = 0,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })
@@ -2030,7 +2030,7 @@ end
             BackgroundTransparency = 1,
             Position = UDim2New(0, 0, 0, 75),
             BorderColor3 = FromRGB(0, 0, 0),
-            Size = UDim2New(1, 0, 1, -80),
+            Size = UDim2New(1, 0, 1, -78),
             BorderSizePixel = 0,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })
@@ -2051,9 +2051,9 @@ end
         Items["Content"] = Instances:Create("Frame", {
             Parent = Items["MainFrame"].Instance,
             Name = "\0",
-            Position = UDim2New(0, 220, 0, 6),
+            Position = UDim2New(0, 180, 0, 6),
             BorderColor3 = FromRGB(0, 0, 0),
-            Size = UDim2New(1, -226, 1, -12),
+            Size = UDim2New(1, -186, 1, -12),
             BorderSizePixel = 0,
             BackgroundColor3 = FromRGB(18, 18, 18)
         })  Items["Content"]:AddToTheme({BackgroundColor3 = "Inline"})
@@ -2071,76 +2071,6 @@ end
             ApplyStrokeMode = Enum.ApplyStrokeMode.Border
         }):AddToTheme({Color = "Border"})          
         
-        Items["Bottom_"] = Instances:Create("Frame", {
-            Parent = Items["Side"].Instance,
-            Name = "\0",
-            AnchorPoint = Vector2New(0, 1),
-            Position = UDim2New(0, 6, 1, -6),
-            BorderColor3 = FromRGB(0, 0, 0),
-            Size = UDim2New(1, -12, 0, 45),
-            BorderSizePixel = 0,
-            BackgroundColor3 = FromRGB(18, 18, 18)
-        })  Items["Bottom_"]:AddToTheme({BackgroundColor3 = "Inline"})
-        
-        Instances:Create("UICorner", {
-            Parent = Items["Bottom_"].Instance,
-            Name = "\0",
-            CornerRadius = UDimNew(0, 7)
-        })
-        
-        Instances:Create("UIStroke", {
-            Parent = Items["Bottom_"].Instance,
-            Name = "\0",
-            Color = FromRGB(35, 35, 35),
-            ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        }):AddToTheme({Color = "Border"})
-        
-        Items["SubExpires"] = Instances:Create("TextLabel", {
-            Parent = Items["Bottom_"].Instance,
-            Name = "\0",
-            FontFace = Library.Font,
-            TextColor3 = FromRGB(255, 255, 255),
-            TextTransparency = 0.5,
-            Text = "Sub expires in "..Window.ExpiresIn,
-            Size = UDim2New(0, 0, 0, 15),
-            BorderSizePixel = 0,
-            BackgroundTransparency = 1,
-            Position = UDim2New(0, 10, 0, 8),
-            BorderColor3 = FromRGB(0, 0, 0),
-            AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 12,
-            BackgroundColor3 = FromRGB(255, 255, 255)
-        })
-        
-        Items["SessionDuration"] = Instances:Create("TextLabel", {
-            Parent = Items["Bottom_"].Instance,
-            Name = "\0",
-            FontFace = Library.Font,
-            TextColor3 = FromRGB(255, 255, 255),
-            BorderColor3 = FromRGB(0, 0, 0),
-            Text = "Session duration: ",
-            Size = UDim2New(0, 0, 0, 15),
-            BackgroundTransparency = 1,
-            Position = UDim2New(0, 10, 0, 23),
-            BorderSizePixel = 0,
-            AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 12,
-            BackgroundColor3 = FromRGB(255, 255, 255)
-        })                
-
-        Library:Thread(function()
-            while task.wait(1) do
-                local SecondsPassed = MathFloor(tick() - StartTime)
-                local MinutesPassed = MathFloor(SecondsPassed / 60)
-
-                if MinutesPassed > 0 then
-                    SecondsPassed = SecondsPassed - MinutesPassed * 60
-                end
-
-                Items["SessionDuration"].Instance.Text = "Session duration: "..MinutesPassed..":"..SecondsPassed
-            end
-        end)
-
         Window.Items = Items
     end
     
@@ -2233,7 +2163,13 @@ end
                     Size = UDim2New(1, 0, 0, 30),
                     BorderSizePixel = 0,
                     TextSize = 14,
-                    BackgroundColor3 = FromRGB(18, 18, 18)
+                    BackgroundColor3 = FromRGB(26, 26, 26)
+                })  Items["Inactive"]:AddToTheme({BackgroundColor3 = "Element"})
+
+                Instances:Create("UICorner", {
+                    Parent = Items["Inactive"].Instance,
+                    Name = "\0",
+                    CornerRadius = UDimNew(0, 6)
                 })
                 
                 -- Red left border bar (Prestige.CC style)
@@ -2321,16 +2257,20 @@ end
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
                 
-                Items["SubPages"] = Instances:Create("Frame", {
+                Items["SubPages"] = Instances:Create("ScrollingFrame", {
                     Parent = Items["Page"].Instance,
                     Name = "\0",
                     Size = UDim2New(1, -26, 0, 32),
                     Position = UDim2New(0, 13, 0, 40),
                     BorderColor3 = FromRGB(0, 0, 0),
                     BorderSizePixel = 0,
-                    AutomaticSize = Enum.AutomaticSize.None,
                     BackgroundTransparency = 1,
-                    BackgroundColor3 = FromRGB(13, 13, 13)
+                    BackgroundColor3 = FromRGB(13, 13, 13),
+                    ScrollBarThickness = 0,
+                    ScrollingDirection = Enum.ScrollingDirection.X,
+                    AutomaticCanvasSize = Enum.AutomaticSize.X,
+                    CanvasSize = UDim2New(0, 0, 0, 0),
+                    ClipsDescendants = true,
                 })
                 
                 -- Bottom border line under tabs (Prestige.CC style)
@@ -2390,10 +2330,12 @@ end
     Items["Page"].Instance.Parent = Bool and Page.Window.Items["Content"].Instance or Library.UnusedHolder.Instance
 
     if Page.Active then
+        Items["Inactive"]:Tween(nil, {BackgroundTransparency = 0})
         Items["LeftBar"]:Tween(nil, {BackgroundTransparency = 0})
         Items["Icon"]:Tween(nil, {ImageColor3 = Library.Theme.Accent})
         Items["Text"]:Tween(nil, {TextColor3 = Library.Theme.Accent})
     else
+        Items["Inactive"]:Tween(nil, {BackgroundTransparency = 1})
         Items["LeftBar"]:Tween(nil, {BackgroundTransparency = 1})
         Items["Icon"]:Tween(nil, {ImageColor3 = FromRGB(100, 100, 100)})
         Items["Text"]:Tween(nil, {TextColor3 = FromRGB(100, 100, 100)})
