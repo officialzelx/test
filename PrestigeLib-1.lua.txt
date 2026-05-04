@@ -2554,8 +2554,8 @@ Library.Pages.Section = function(self, Data)
             BorderColor3 = FromRGB(0, 0, 0),
             Image = "rbxassetid://"..Section.Icon,
             BackgroundTransparency = 1,
-            Position = UDim2New(0, 12, 0, 12),
-            Size = UDim2New(0, 16, 0, 16),
+            Position = UDim2New(0, 10, 0, 8),
+            Size = UDim2New(0, 14, 0, 14),
             BorderSizePixel = 0,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })
@@ -2563,7 +2563,7 @@ Library.Pages.Section = function(self, Data)
         Instances:Create("UIPadding", {
             Parent = Items["Section"].Instance,
             Name = "\0",
-            PaddingBottom = UDimNew(0, 12)
+            PaddingBottom = UDimNew(0, 8)
         })
         
         Items["Text"] = Instances:Create("TextLabel", {
@@ -2573,12 +2573,12 @@ Library.Pages.Section = function(self, Data)
             TextColor3 = FromRGB(100, 100, 100),
             BorderColor3 = FromRGB(0, 0, 0),
             Text = Section.Name,
-            Size = UDim2New(0, 0, 0, 15),
+            Size = UDim2New(0, 0, 0, 13),
             BackgroundTransparency = 1,
-            Position = UDim2New(0, 35, 0, 12),
+            Position = UDim2New(0, 30, 0, 9),
             BorderSizePixel = 0,
             AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 14,
+            TextSize = 12,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })
         
@@ -2587,8 +2587,8 @@ Library.Pages.Section = function(self, Data)
             Name = "\0",
             BorderColor3 = FromRGB(0, 0, 0),
             BackgroundTransparency = 1,
-            Position = UDim2New(0, 12, 0, 42),
-            Size = UDim2New(1, -24, 0, 0),
+            Position = UDim2New(0, 10, 0, 32),
+            Size = UDim2New(1, -20, 0, 0),
             BorderSizePixel = 0,
             AutomaticSize = Enum.AutomaticSize.Y,
             BackgroundColor3 = FromRGB(255, 255, 255)
@@ -2597,7 +2597,7 @@ Library.Pages.Section = function(self, Data)
         Instances:Create("UIListLayout", {
             Parent = Items["Content"].Instance,
             Name = "\0",
-            Padding = UDimNew(0, 8),
+            Padding = UDimNew(0, 6),
             SortOrder = Enum.SortOrder.LayoutOrder
         })
         
@@ -2633,9 +2633,9 @@ end
                     Text = "",
                     AutoButtonColor = false,
                     BackgroundTransparency = 1,
-                    Size = UDim2New(1, 0, 0, 16),
+                    Size = UDim2New(1, 0, 0, 13),
                     BorderSizePixel = 0,
-                    TextSize = 14,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
                 
@@ -2647,12 +2647,12 @@ end
                     BorderColor3 = FromRGB(0, 0, 0),
                     Text = Toggle.Name,
                     AnchorPoint = Vector2New(0, 0.5),
-                    Size = UDim2New(0, 0, 0, 15),
+                    Size = UDim2New(0, 0, 0, 13),
                     BackgroundTransparency = 1,
                     Position = UDim2New(0, 0, 0.5, 0),
                     BorderSizePixel = 0,
                     AutomaticSize = Enum.AutomaticSize.X,
-                    TextSize = 14,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
                 
@@ -2941,7 +2941,7 @@ end
                     Name = "\0",
                     BackgroundTransparency = 1,
                     BorderColor3 = FromRGB(0, 0, 0),
-                    Size = UDim2New(1, 0, 0, 30),
+                    Size = UDim2New(1, 0, 0, 24),
                     BorderSizePixel = 0,
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
@@ -2954,10 +2954,10 @@ end
                     BorderColor3 = FromRGB(0, 0, 0),
                     Text = Slider.Name,
                     BackgroundTransparency = 1,
-                    Size = UDim2New(0, 0, 0, 15),
+                    Size = UDim2New(0, 0, 0, 13),
                     BorderSizePixel = 0,
                     AutomaticSize = Enum.AutomaticSize.X,
-                    TextSize = 14,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
                 
@@ -2969,12 +2969,12 @@ end
                     BorderColor3 = FromRGB(0, 0, 0),
                     Text = "",
                     AnchorPoint = Vector2New(1, 0),
-                    Size = UDim2New(0, 0, 0, 15),
+                    Size = UDim2New(0, 0, 0, 13),
                     BackgroundTransparency = 1,
                     Position = UDim2New(1, 0, 0, 0),
                     BorderSizePixel = 0,
                     AutomaticSize = Enum.AutomaticSize.X,
-                    TextSize = 14,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
                 })
                 
