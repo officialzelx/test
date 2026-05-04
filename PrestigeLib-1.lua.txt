@@ -1911,21 +1911,9 @@ Library.Window = function(self, Data)
             BorderColor3 = FromRGB(0, 0, 0),
             Size = UDim2New(1, -12, 0, 60),
             BorderSizePixel = 0,
+            BackgroundTransparency = 1,
             BackgroundColor3 = FromRGB(18, 18, 18)
-        })  Items["Title"]:AddToTheme({BackgroundColor3 = "Inline"})
-        
-        Instances:Create("UICorner", {
-            Parent = Items["Title"].Instance,
-            Name = "\0",
-            CornerRadius = UDimNew(0, 7)
         })
-        
-        Instances:Create("UIStroke", {
-            Parent = Items["Title"].Instance,
-            Name = "\0",
-            Color = FromRGB(35, 35, 35),
-            ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        }):AddToTheme({Color = "Border"})
 
         Items["Background"] = Instances:Create("Frame", {
             Parent = Items["Title"].Instance,
@@ -1935,27 +1923,15 @@ Library.Window = function(self, Data)
             BorderColor3 = FromRGB(0, 0, 0),
             Size = UDim2New(0, 40, 0, 40),
             BorderSizePixel = 0,
+            BackgroundTransparency = 1,
             BackgroundColor3 = FromRGB(20, 20, 20)
         })
-        
-        Instances:Create("UICorner", {
-            Parent = Items["Background"].Instance,
-            Name = "\0",
-            CornerRadius = UDimNew(0, 7)
-        })
-        
-        Instances:Create("UIStroke", {
-            Parent = Items["Background"].Instance,
-            Name = "\0",
-            Color = FromRGB(35, 35, 35),
-            ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        }):AddToTheme({Color = "Border"})
 
         Items["Text"] = Instances:Create("TextLabel", {
             Parent = Items["Background"].Instance,
             Name = "\0",
             FontFace = Library.Font,
-            TextColor3 = FromRGB(0, 0, 0),
+            TextColor3 = FromRGB(255, 255, 255),
             BorderColor3 = FromRGB(0, 0, 0),
             Text = FirstLetterOfName,
             AnchorPoint = Vector2New(0.5, 0.5),
@@ -1982,12 +1958,6 @@ if Window.Logo and Window.Logo ~= "" then
         ZIndex = 2
     })
 
-    local LogoCorner = Instances:Create("UICorner", {
-        Parent = Items["LogoImage"].Instance,
-        Name = "\0",
-        CornerRadius = UDimNew(0, 7)
-    })
-
     Items["Text"].Instance.Visible = false
 end
         
@@ -2000,10 +1970,10 @@ end
             Text = Window.Name,
             Size = UDim2New(0, 0, 0, 15),
             BackgroundTransparency = 1,
-            Position = UDim2New(0, 65, 0, 14),
+            Position = UDim2New(0, 58, 0, 12),
             BorderSizePixel = 0,
             AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 14,
+            TextSize = 13,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })  
         
@@ -2014,13 +1984,13 @@ end
             TextColor3 = FromRGB(255, 255, 255),
             TextTransparency = 0.5,
             Text = Window.SubTitle,
-            Size = UDim2New(0, 0, 0, 15),
+            Size = UDim2New(0, 0, 0, 13),
             BorderSizePixel = 0,
             BackgroundTransparency = 1,
-            Position = UDim2New(0, 65, 0, 30),
+            Position = UDim2New(0, 58, 0, 30),
             BorderColor3 = FromRGB(0, 0, 0),
             AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 14,
+            TextSize = 12,
             BackgroundColor3 = FromRGB(255, 255, 255)
         })
         
@@ -2268,9 +2238,11 @@ end
                     BackgroundColor3 = FromRGB(13, 13, 13),
                     ScrollBarThickness = 0,
                     ScrollingDirection = Enum.ScrollingDirection.X,
+                    ScrollingEnabled = true,
                     AutomaticCanvasSize = Enum.AutomaticSize.X,
                     CanvasSize = UDim2New(0, 0, 0, 0),
                     ClipsDescendants = true,
+                    ElasticBehavior = Enum.ElasticBehavior.Never,
                 })
                 
                 -- Bottom border line under tabs (Prestige.CC style)
@@ -2411,19 +2383,18 @@ Library.Pages.SubPage = function(self, Data)
             BorderSizePixel = 0,
             BorderColor3 = FromRGB(0, 0, 0),
             AutomaticSize = Enum.AutomaticSize.X,
-            TextSize = 14,
+            TextSize = 13,
             BackgroundColor3 = FromRGB(13, 13, 13)
         })  Items["Inactive"]:AddToTheme({BackgroundColor3 = "Background"})
          
         Instances:Create("UIPadding", {
             Parent = Items["Inactive"].Instance,
             Name = "\0",
-            PaddingRight = UDimNew(0, 10),
-            PaddingLeft = UDimNew(0, 10),
+            PaddingRight = UDimNew(0, 14),
+            PaddingLeft = UDimNew(0, 14),
             PaddingBottom = UDimNew(0, 2)
         })
 
-        -- Red underline indicator (Prestige.CC style)
         Items["Underline"] = Instances:Create("Frame", {
             Parent = Items["Inactive"].Instance,
             Name = "\0",
